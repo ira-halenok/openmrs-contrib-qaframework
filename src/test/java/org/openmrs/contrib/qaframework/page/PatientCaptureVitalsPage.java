@@ -119,7 +119,7 @@ public class PatientCaptureVitalsPage extends Page {
 		WebElement bloodOxygenSaturationField = findElement(BLOOD_OXYGEN_SATURATION_FIELD);
 		bloodOxygenSaturationField.clear();
 		bloodOxygenSaturationField.sendKeys(value);
-		findElement(By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[2]")).click();
+		findElement(By.xpath("//*[@id='next-button']")).click();
 	}
 
 	public void confirm() {
@@ -145,6 +145,12 @@ public class PatientCaptureVitalsPage extends Page {
 		if (confirmButton2 != null) {
 			// waiter.until(ExpectedConditions.elementToBeClickable(CONFIRM_BUTTON_2));
 			confirmButton2.click();
+		}
+	}
+
+	public void clickNext(int times) {
+		for (int i = 0; i < times; i++) {
+			findElement(By.xpath("//*[@id='next-button']")).click();
 		}
 	}
 }
